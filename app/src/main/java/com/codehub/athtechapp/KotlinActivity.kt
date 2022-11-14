@@ -1,5 +1,6 @@
 package com.codehub.athtechapp
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -27,7 +28,7 @@ class KotlinActivity : AppCompatActivity() {
             parameters.putString("dev", "vassilis")
             parameters.putInt("age", 100)
             intent.putExtras(parameters)
-            startActivity(intent)
+            startActivityForResult(intent,1000)
         }
 
         var textview = findViewById<TextView>(R.id.main_txt_title)
@@ -61,5 +62,11 @@ class KotlinActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
 //        super.onBackPressed()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        Activity.RESULT_OK
+        Activity.RESULT_CANCELED
+        super.onActivityResult(requestCode, resultCode, data)
     }
 }

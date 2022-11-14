@@ -1,5 +1,6 @@
 package com.codehub.athtechapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
@@ -22,8 +23,15 @@ class SecondActivity : AppCompatActivity() {
         findViewById<Button>(R.id.second_btn).setOnClickListener {
 //            val intent = Intent(this, KotlinActivity::class.java)
 //            startActivity(intent)
-            onBackPressed()
-//            finish()
+
+            var intent = Intent()
+            val resultParameters = Bundle()
+            resultParameters.putString("dev_name", "vassilis")
+            intent.putExtras(resultParameters)
+
+            setResult(1000, intent)
+
+            finish()
         }
     }
 }
