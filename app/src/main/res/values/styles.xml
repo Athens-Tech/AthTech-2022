@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="Buttons">
+		<item name="android:paddingTop">@dimen/default_padding_space</item>
+		<item name="android:paddingBottom">@dimen/default_padding_space</item>
+	</style>
+
+</resources>
