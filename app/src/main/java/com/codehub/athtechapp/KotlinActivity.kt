@@ -23,12 +23,15 @@ class KotlinActivity : AppCompatActivity() {
         var button = findViewById<Button>(R.id.main_btn_blue)
         button.setOnClickListener {
             Log.d("App", "The user pressed the button!!!")
-            var intent = Intent(this, SecondActivity::class.java)
-            var parameters = Bundle()
-            parameters.putString("dev", "vassilis")
-            parameters.putInt("age", 100)
-            intent.putExtras(parameters)
-            startActivityForResult(intent,1000)
+//            var intent = Intent(this, SecondActivity::class.java)
+//            var parameters = Bundle()
+//            parameters.putString("dev", "vassilis")
+//            parameters.putInt("age", 100)
+//            intent.putExtras(parameters)
+//            startActivityForResult(intent,1000)
+
+            var intent = Intent(this, ServerActivity::class.java)
+            startActivity(intent)
         }
 
         var textview = findViewById<TextView>(R.id.main_txt_title)
