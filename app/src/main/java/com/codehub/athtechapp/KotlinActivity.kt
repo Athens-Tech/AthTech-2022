@@ -8,6 +8,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.codehub.athtechapp.recycler.RecyclerActivity
 import com.google.android.material.snackbar.Snackbar
 
 class KotlinActivity : AppCompatActivity() {
@@ -30,7 +31,8 @@ class KotlinActivity : AppCompatActivity() {
 //            intent.putExtras(parameters)
 //            startActivityForResult(intent,1000)
 
-            var intent = Intent(this, ServerActivity::class.java)
+            //var intent = Intent(this, ServerActivity::class.java)
+            var intent = Intent(this, RecyclerActivity::class.java)
             startActivity(intent)
         }
 
