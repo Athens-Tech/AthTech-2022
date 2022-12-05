@@ -53,12 +53,20 @@ class RecyclerActivity : AppCompatActivity() {
 
                     var dataList = mutableListOf<ListData>()
                     jsonResponse.entries.forEach {
-                        var row = ListData(it.Description,it.HTTPS)
+                        var row = ListData(it.Description, it.HTTPS)
                         dataList.add(row)
                     }
 
                     var recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
-                    recyclerView.adapter = RecyclerAdapterWithListData(this@RecyclerActivity, dataList)
+                    recyclerView.adapter = RecyclerAdapterWithListData(
+                        this@RecyclerActivity,
+                        dataList,
+                        object : OnItemClickListener {
+                            override fun onClick(data: ListData) {
+                                Log.d("Activity-Holder", "We receive data from a holder " + data)
+                            }
+
+                        })
                 }
             }, object : Response.ErrorListener {
                 override fun onErrorResponse(error: VolleyError?) {

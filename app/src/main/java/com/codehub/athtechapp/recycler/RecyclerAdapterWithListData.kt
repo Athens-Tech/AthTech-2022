@@ -11,11 +11,13 @@ class RecyclerAdapterWithListData : RecyclerView.Adapter<RecyclerHolderWithListD
 
     private var dataList: List<ListData>
     private var context: Context
+    private var listener: OnItemClickListener
 
 
-    constructor(context: Context, dataList: List<ListData>) {
+    constructor(context: Context, dataList: List<ListData>, listener: OnItemClickListener) {
         this.dataList = dataList
         this.context = context
+        this.listener = listener
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerHolderWithListData {
@@ -24,7 +26,7 @@ class RecyclerAdapterWithListData : RecyclerView.Adapter<RecyclerHolderWithListD
     }
 
     override fun onBindViewHolder(holder: RecyclerHolderWithListData, position: Int) {
-        holder.bind(dataList.get(position))
+        holder.bind(dataList.get(position),listener)
     }
 
 
