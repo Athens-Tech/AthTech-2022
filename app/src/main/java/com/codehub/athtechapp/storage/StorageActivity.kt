@@ -1,6 +1,7 @@
 package com.codehub.athtechapp.storage
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.room.Room
 import com.codehub.athtechapp.R
@@ -16,6 +17,16 @@ class StorageActivity : AppCompatActivity() {
 
         val database =
             Room.databaseBuilder(this, DatabaseInstance::class.java, "db_AthTech").build()
+
+//        database.getEntityDao().save(DatabaseEntity("vassilis", 100))
+
+        AsyncTaskClassInsert(database).execute(DatabaseEntity("markos", 100))
+
+        AsyncTaskClass(database, object : AsyncTaskListener {
+            override fun onSuccess(onResult: List<DatabaseEntity>) {
+                findViewById<TextView>(R.id.textView).setText(onResult.size)
+            }
+        }).execute()
     }
 
     override fun onPostResume() {

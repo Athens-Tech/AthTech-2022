@@ -11,4 +11,9 @@ class DatabaseEntity {
     var name: String = ""
     @ColumnInfo(name = "age")
     var age: Int = 0
+
+    constructor(name: String, age: Int) {
+        this.name = name
+        this.age = age
+    }
 }
